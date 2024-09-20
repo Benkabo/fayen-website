@@ -5,23 +5,32 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --blue-color: #013f86;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-padding {
+  padding: 0 6.25rem;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.enriqueta {
+  font-family: var(--font-enriqueta);
+  font-size: 1.125rem;
 }
