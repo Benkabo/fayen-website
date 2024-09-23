@@ -8,12 +8,12 @@ import { RiInstagramFill } from "react-icons/ri";
 import { BsTwitterX } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 
-const isBrowser = () => typeof window !== "undefined";
-
 export default function Footer() {
+  const isBrowser = () => typeof window !== "undefined";
+
   const scrollToTop = () => {
     if (!isBrowser()) return;
-    global?.window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
