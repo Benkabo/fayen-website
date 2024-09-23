@@ -13,7 +13,7 @@ const isBrowser = () => typeof window !== "undefined";
 export default function Footer() {
   const scrollToTop = () => {
     if (!isBrowser()) return;
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    global?.window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
