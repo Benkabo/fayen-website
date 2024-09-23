@@ -7,13 +7,19 @@ import { FaArrowCircleUp, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { BsTwitterX } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
+import { useEffect } from "react";
 
 export default function Footer() {
+  const isBrowser = () => typeof window !== "undefined";
+
   const scrollToTop = () => {
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   return (
     <div className="bg-[#013f86]  ">
