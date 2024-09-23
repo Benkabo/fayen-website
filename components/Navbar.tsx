@@ -42,6 +42,7 @@ export default function Navbar() {
   const [nav, setNav] = useState(false);
   const [color, setColor] = useState("transparent");
   const [textColor, setTextColor] = useState("white");
+  const [logoColor, setLogoColor] = useState(false);
 
   const handleNav = () => {
     setNav(!nav);
@@ -49,12 +50,14 @@ export default function Navbar() {
 
   useEffect(() => {
     const changeColor = () => {
-      if (window.scrollY >= 90) {
+      if (typeof window !== "undefined" && window.scrollY >= 90) {
         setColor("#ffffff");
         setTextColor("#01306A");
+        setLogoColor(true);
       } else {
         setColor("transparent");
         setTextColor("white");
+        setLogoColor(false);
       }
     };
     window.addEventListener("scroll", changeColor);
@@ -67,7 +70,7 @@ export default function Navbar() {
     >
       <div className="max-w-[1240px] m-auto flex items-center justify-between p-4">
         <div>
-          {window.scrollY >= 90 ? (
+          {logoColor ? (
             <Image src={FayenBlueLogo} alt="Fayen logo" width={175} />
           ) : (
             <Image src={FayenWhiteLogo} alt="Fayen logo" width={175} />
