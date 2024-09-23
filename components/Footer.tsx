@@ -9,11 +9,10 @@ import { BsTwitterX } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 
 export default function Footer() {
-  const isBrowser = () => typeof window !== "undefined";
-
   const scrollToTop = () => {
-    if (!isBrowser()) return;
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
