@@ -8,7 +8,7 @@ type CardProps = {
 
 export default function ServiceCard({ src, alt, text }: CardProps) {
   return (
-    <div className="bg-white rounded-3xl p-3 hover:cursor-pointer hover:scale-110 ease-in-out duration-300">
+    <div className="bg-white rounded-3xl p-3 hover:cursor-pointer hover:scale-105 ease-in-out duration-300">
       <Image
         src={src}
         alt={alt}
