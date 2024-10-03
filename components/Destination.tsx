@@ -16,12 +16,14 @@ import franceImg from "@/public/images/france-img.png";
 
 export default function Destination() {
   return (
-    <>
-      <div className="max-w-screen-lg mb-5 mx-auto">
-        <div className="text-center py-5">
-          <p className="mt-5 text-4xl font-bold text-[#01306A]">Destinations</p>
+    <div className="min-h-fit py-20 lg:flex">
+      <div className="max-w-screen-lg mx-auto md:max-w-screen-xl md:m-auto">
+        <div className="text-center">
+          <p className="text-3xl md:text-5xl font-bold text-[#01306A]">
+            Destinations
+          </p>
 
-          <p className="mb-5 mt-8 tracking-wide font-extrabold text-[#01306A] text-5xl">
+          <p className="mb-5 mt-8 tracking-wide font-extrabold text-[#01306A] text-4xl md:text-6xl">
             Explore Beautiful Places
           </p>
         </div>
@@ -109,6 +111,6 @@ export default function Destination() {
           </SwiperSlide>
         </Swiper>
       </div>
-    </>
+    </div>
   );
 }

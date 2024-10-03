@@ -22,7 +22,7 @@ export default function DestinationCard({
   return (
     <>
       <div className="pb-2 relative">
-        <div className="bg-[#F4F4F4] rounded-xl ">
+        <div className="bg-[#F4F4F4] w-fit rounded-xl ">
           <div className="absolute top-5 left-5 text-sm">
             <span className="bg-[#013F86] p-1 rounded-full text-white font-semibold">
               ${price} <span>Per Night</span>
