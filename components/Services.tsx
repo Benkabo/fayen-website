@@ -10,7 +10,7 @@ import service6 from "@/public/images/service6.jpeg";
 export default function Services() {
   return (
     <div className="flex bg-center bg-cover service-img">
-      <div className="max-w-[1240px] mb-5 mx-auto">
+      <div className="max-w-screen-lg mb-5 mx-auto">
         <p className="text-white text-center text-4xl font-bold mt-28 mb-10">
           Our Services
         </p>

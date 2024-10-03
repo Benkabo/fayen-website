@@ -17,7 +17,7 @@ import franceImg from "@/public/images/france-img.png";
 export default function Destination() {
   return (
     <>
-      <div className="max-w-[1240px] mb-5 mx-auto">
+      <div className="max-w-screen-lg mb-5 mx-auto">
         <div className="text-center py-5">
           <p className="mt-5 text-4xl font-bold text-[#01306A]">Destinations</p>
 

@@ -68,7 +68,7 @@ export default function Navbar() {
       style={{ backgroundColor: `${color}` }}
       className="fixed top-0 left-0 w-full z-10 ease-in duration-300 "
     >
-      <div className="max-w-[1240px] m-auto flex items-center justify-between p-4">
+      <div className="max-w-screen-lg m-auto flex items-center justify-between p-4">
         <div>
           {logoColor ? (
             <Image src={FayenBlueLogo} alt="Fayen logo" width={175} />
