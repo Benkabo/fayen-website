@@ -82,13 +82,15 @@ export default function Footer() {
               <div className="flex flex-col md:flex-row text-center md:text-start gap-5">
                 <div>
                   <p className="text-slate-500">For more info:</p>
-                  <Link href="mailto:Info@fayentravel.co.tz">
-                    <p className="ml-2">Info@fayentravel.co.tz</p>
-                  </Link>
+                  <a href="mailto:Info@fayentravel.co.tz">
+                    <p>Info@fayentravel.co.tz</p>
+                  </a>
                 </div>
                 <div>
                   <p className="text-slate-500">Contact us Now</p>
-                  <p>(255) 655 210 944</p>
+                  <p>
+                    <a href="tel:+255655210944">(255) 655 210 944</a>
+                  </p>
                 </div>
               </div>
             </div>

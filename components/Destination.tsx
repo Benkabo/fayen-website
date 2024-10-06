@@ -1,14 +1,12 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import "swiper/css/free-mode";
-
-import { FreeMode, Pagination } from "swiper/modules";
 
 import DestinationCard from "@/app/ui/DestinationCard";
 
@@ -44,9 +42,10 @@ export default function Destination() {
               spaceBetween: 15,
             },
           }}
-          freeMode={true}
+          navigation={true}
           pagination={{ clickable: true }}
-          modules={[FreeMode, Pagination]}
+          loop={true}
+          modules={[Navigation, Pagination, Scrollbar]}
           className="max-w-[90%] lg:max-w-full"
         >
           <SwiperSlide>
