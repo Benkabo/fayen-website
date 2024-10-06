@@ -13,7 +13,7 @@ export default function booking() {
           Contact Us
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-4 mb-10">
+      <div className="md:grid md:grid-cols-3 gap-4 mb-10">
         <div className="bg-gray-100/50 px-10 py-5 ">
           <p className="text-center text-2xl font-semibold mb-5">
             How can we help you?
