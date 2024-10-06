@@ -66,7 +66,7 @@ export default function Navbar() {
   return (
     <div
       style={{ backgroundColor: `${color}` }}
-      className="fixed top-0 left-0 w-full z-10 ease-in duration-300 "
+      className="fixed top-0 left-0 w-full z-[999] ease-in duration-300 "
     >
       <div className="max-w-screen-lg m-auto flex items-center justify-between p-4">
         <div>

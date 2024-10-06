@@ -168,3 +168,7 @@ body {
 .service-img {
   background-image: url("../public/images/services.png");
 }
+
+.custom-img-atcl {
+  background-image: url("../public/images/atcl-2.jpeg");
+}

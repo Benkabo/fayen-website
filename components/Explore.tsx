@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { CiBookmark } from "react-icons/ci";
 
@@ -53,7 +54,7 @@ export default function Explore() {
           </div>
           <div className="mt-8 text-white flex items-center justify-center md:justify-start">
             <button className=" bg-[#01306A] flex gap-5 text-4xl font-extrabold py-2 px-5 rounded-md hover:scale-105 transition duration-300 ease-in-out">
-              Book Now
+              <Link href="/about">Book Now</Link>
               <span>
                 <CiBookmark />
               </span>
