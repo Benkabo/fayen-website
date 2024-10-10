@@ -4,8 +4,8 @@ import treeImage from "@/public/images/tree-1.png";
 
 export default function About() {
   return (
-    <div className="max-w-screen-lg min-h-[500px] m-auto mt-20">
-      <div className="flex items-center justify-center gap-4">
+    <div id="about" className="max-w-screen-lg mx-auto">
+      <div className="flex items-center justify-center min-h-[600px] gap-4">
         <div className="hidden lg:flex gap-2">
           <Image
             src={treeImage}
@@ -19,12 +19,15 @@ export default function About() {
             About us
           </div>
           <div className="leading-7 text-xl text-center md:text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et est
-            non diam mattis condimentum nec quis enim. Nullam non mollis quam.
-            Sed in cursus dui. Cras ultrices, quam at maximus vulputate, nisi
-            lorem tempus tellus, vel pellentesque leo tellus a leo. Nunc sed
-            metus sapien. Etiam dapibus ligula at pulvinar dapibus. Ut volutpat
-            iaculis scelerisque. In lacinia luctus dolor mattis fringilla.
+            Fayen Travel is a Tanzania-based travel agency specializing in
+            unforgettable experiences across the country. From the pristine
+            beaches of Zanzibar to the breathtaking wildlife in Serengeti and
+            Ngorongoro, we offer personalized travel packages that showcase
+            Tanzania’s natural beauty and rich culture. Our office is located at
+            Oyster Galleria, M Floor, Chole Road, Masaki. Whether you’re seeking
+            a beach getaway, safari adventure, or a climb up Mount Kilimanjaro,
+            we’re here to make your dream trip a reality. Let us guide you
+            through the best of Tanzania
           </div>
         </div>
       </div>

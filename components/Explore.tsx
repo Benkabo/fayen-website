@@ -32,25 +32,20 @@ export default function Explore() {
         <div className=" w-[1100px]">
           <article>
             <h1 className="text-6xl font-extrabold text-center md:text-left text-[#01306A]">
-              Experience the World with our Company
+              Why choose Fayen Travel Agency
             </h1>
           </article>
           <div className="leading-7 text-xl text-center md:text-left mt-5">
-            Nam pretium urna ante, at viverra ipsum efficitur ac. Interdum et
-            malesuada fames ac ante ipsum primis in faucibus. Pellentesque
-            rutrum molestie laoreet. Sed hendrerit malesuada iaculis. Vivamus
-            quis dolor pellentesque, pretium nunc et, vulputate nisl. Aenean vel
-            augue maximus, dapibus sapien a, dictum dui. Suspendisse ut tempor
-            libero. Etiam consequat ipsum vitae ex dignissim, sit amet commodo
-            purus congue. Pellentesque lobortis quam vel rutrum viverra. Duis
-            volutpat ullamcorper leo, Nam pretium urna ante, at viverra ipsum
-            efficitur ac. Interdum et malesuada fames ac ante ipsum primis in
-            faucibus. Pellentesque rutrum molestie laoreet. Sed hendrerit
-            malesuada iaculis. Vivamus quis dolor pellentesque, pretium nunc et,
-            vulputate nisl. Aenean vel augue maximus, dapibus sapien a, dictum
-            dui. Suspendisse ut tempor libero. Etiam consequat ipsum vitae ex
-            dignissim, sit amet commodo purus congue. Pellentesque lobortis quam
-            vel rutrum viverra. Duis volutpat ullamcorper leo,
+            At our company, we offer comprehensive travel services worldwide.
+            Whether you’re dreaming of an adventure in Africa, exploring the
+            stunning beaches of Zanzibar, or traveling to top global
+            destinations like Thailand, South Africa, or Dubai, we’ve got you
+            covered. Our services include flight bookings, visa assistance, car
+            rentals, holiday packages, hotel reservations, and personalized
+            itineraries tailored to your needs. With our experienced team and
+            global network, we make travel seamless, ensuring you can explore
+            the world with ease and confidence. Choose us for a hassle-free
+            travel experience wherever you want to go.
           </div>
           <div className="mt-8 text-white flex items-center justify-center md:justify-start">
             <button className=" bg-[#01306A] flex gap-5 text-4xl font-extrabold py-2 px-5 rounded-md hover:scale-105 transition duration-300 ease-in-out">

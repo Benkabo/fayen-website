@@ -172,3 +172,12 @@ body {
 .custom-img-atcl {
   background-image: url("../public/images/atcl-2.jpeg");
 }
+
+/* .swiper-button-next,
+.swiper-button-prev {
+  color: white;
+} */
+
+.swiper-pagination-bullet-active {
+  background-color: white;
+}

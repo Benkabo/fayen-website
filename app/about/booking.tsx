@@ -20,12 +20,12 @@ export default function booking() {
           </p>
           <div className="flex gap-2 mb-5">
             <FaPhoneAlt size={20} />
-            <Link href="tel:+255655210944">(255) 655 210 944</Link>
+            <Link href="tel:+255779528442">(255) 779 528 442</Link>
           </div>
 
           <div className="flex gap-2 mb-5">
             <FaLocationDot />
-            <p>Location ya fayen group limited</p>
+            <p>Oysterbay, Dar es Salaam</p>
           </div>
 
           <div>
@@ -74,7 +74,18 @@ export default function booking() {
             </div>
             <div className="grid mb-10">
               <label className="mb-1">Subject</label>
-              <input className="py-2 px-2 rounded-sm border-[1px]" />
+              <select
+                name="subject"
+                id="subjects"
+                className="py-2 px-2 rounded-sm border-[1px] bg-white"
+              >
+                <option value="flight_booking">Flight Booking</option>
+                <option value="hotel_reservation">Hotel Reservation</option>
+                <option value="visa_assistance">VISA Assistance</option>
+                <option value="car_rental">Car Rental</option>
+                <option value="guided_tour">Guided Tour</option>
+                <option value="tour_package">Tour Package</option>
+              </select>
             </div>
             <div className="grid mb-10">
               <label className="mb-1">Message</label>

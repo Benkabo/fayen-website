@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import fayenWhiteLogo from "@/public/images/logo-white.png";
+import fayenWhiteLogo from "@/public/images/Fayen-icon.png";
 import Link from "next/link";
 import { FaArrowCircleUp, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
@@ -69,8 +69,10 @@ export default function Footer() {
                 </Link>
               </div>
               <div>
-                <Link href={"#"}>
-                  <p className="font-semibold ">Privacy Policy & Terms</p>
+                <Link href="/">
+                  <p className="font-semibold ">
+                    Refund and Cancelleation Policy
+                  </p>
                 </Link>
               </div>
             </div>
@@ -89,7 +91,7 @@ export default function Footer() {
                 <div>
                   <p className="text-slate-500">Contact us Now</p>
                   <p>
-                    <a href="tel:+255655210944">(255) 655 210 944</a>
+                    <a href="tel:+255779528442">(255) 779 528 442</a>
                   </p>
                 </div>
               </div>

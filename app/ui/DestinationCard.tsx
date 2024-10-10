@@ -32,7 +32,7 @@ export default function DestinationCard({
             src={src}
             alt={alt}
             width={300}
-            height={284}
+            height={584}
             style={{ objectFit: "cover" }}
           />
           <div className="relative">

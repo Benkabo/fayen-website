@@ -5,40 +5,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import FayenWhiteLogo from "@/public/images/logo-white.png";
-import FayenBlueLogo from "@/public/images/logo.png";
-import { Links } from "@/lib/types/types";
+import FayenBlueLogo from "@/public/images/FAYEN.png";
 
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 export default function Navbar() {
-  const links: Links[] = [
-    {
-      id: 1,
-      name: "Home",
-      link: "home",
-    },
-    {
-      id: 2,
-      name: "About Us",
-      link: "about",
-    },
-    {
-      id: 3,
-      name: "Services",
-      link: "services",
-    },
-    {
-      id: 4,
-      name: "Destination",
-      link: "destination",
-    },
-    {
-      id: 5,
-      name: "Testimonials",
-      link: "testimonials",
-    },
-  ];
-
   const [nav, setNav] = useState(false);
   const [color, setColor] = useState("transparent");
   const [textColor, setTextColor] = useState("white");
@@ -65,24 +36,36 @@ export default function Navbar() {
 
   return (
     <div
-      style={{ backgroundColor: `${color}` }}
+      style={{
+        backgroundColor: `${color}`,
+      }}
       className="fixed top-0 left-0 w-full z-[999] ease-in duration-300 "
     >
       <div className="max-w-screen-lg m-auto flex items-center justify-between p-4">
-        <div>
+        <Link href="/">
           {logoColor ? (
             <Image src={FayenBlueLogo} alt="Fayen logo" width={175} />
           ) : (
             <Image src={FayenWhiteLogo} alt="Fayen logo" width={175} />
           )}
-        </div>
+        </Link>
         <div className="">
           <ul style={{ color: `${textColor}` }} className="hidden sm:flex">
-            {links.map(({ id, name }) => (
-              <li key={id} className="px-5 font-bold text-xl">
-                <Link href={"#"}>{name}</Link>
-              </li>
-            ))}
+            <li className="px-5 font-bold text-xl">
+              <Link href="/">Home</Link>
+            </li>
+            <li className="px-5 font-bold text-xl">
+              <Link href="/#about">About Us</Link>
+            </li>
+            <li className="px-5 font-bold text-xl">
+              <Link href="/#service">Services</Link>
+            </li>
+            <li className="px-5 font-bold text-xl">
+              <Link href="/#destination">Destination</Link>
+            </li>
+            <li className="px-5 font-bold text-xl">
+              <Link href="/#testimonial">Testimonials</Link>
+            </li>
           </ul>
         </div>
 
@@ -108,14 +91,36 @@ export default function Navbar() {
           }
         >
           <ul style={{ color: `${textColor}` }} className="">
-            {links.map(({ id, name }) => (
-              <li
-                key={id}
-                className="p-4 hover:text-gray-500 text-white font-bold text-4xl"
-              >
-                <Link href={"#"}>{name}</Link>
-              </li>
-            ))}
+            <li
+              onClick={handleNav}
+              className="p-4 hover:text-gray-500 text-white font-bold text-4xl"
+            >
+              <Link href="/">Home</Link>
+            </li>
+            <li
+              onClick={handleNav}
+              className="p-4 hover:text-gray-500 text-white font-bold text-4xl"
+            >
+              <Link href="/#about">About Us</Link>
+            </li>
+            <li
+              onClick={handleNav}
+              className="p-4 hover:text-gray-500 text-white font-bold text-4xl"
+            >
+              <Link href="/#service">Services</Link>
+            </li>
+            <li
+              onClick={handleNav}
+              className="p-4 hover:text-gray-500 text-white font-bold text-4xl"
+            >
+              <Link href="/#destination">Destination</Link>
+            </li>
+            <li
+              onClick={handleNav}
+              className="p-4 hover:text-gray-500 text-white font-bold text-4xl"
+            >
+              <Link href="/#testimonial">Testimonials</Link>
+            </li>
           </ul>
         </div>
       </div>
