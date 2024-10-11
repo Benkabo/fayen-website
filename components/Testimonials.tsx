@@ -37,7 +37,7 @@ export default function Testimonials() {
                     {testimonial.author}
                   </h3>
                 </div>
-                <p className="text-gray-600 italic">
+                <p className="text-gray-600 ">
                   <FaQuoteLeft className="inline-block mr-2 text-[#01306A]" />
                   {testimonial.text}
                   <FaQuoteRight className="inline-block ml-2 text-[#01306A]" />

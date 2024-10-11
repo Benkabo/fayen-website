@@ -31,7 +31,7 @@ export default function Explore() {
         </div>
         <div className=" w-[1100px]">
           <article>
-            <h1 className="text-6xl font-extrabold text-center md:text-left text-[#01306A]">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-center md:text-left text-[#01306A]">
               Why choose Fayen Travel Agency
             </h1>
           </article>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar } from "swiper/modules";
+import { Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -136,11 +136,11 @@ export default function Destination() {
         </Swiper> */}
 
         <Swiper
+          modules={[Navigation, Pagination, Scrollbar, Autoplay]}
           pagination={{
             clickable: true,
           }}
           navigation={true}
-          className="mySwiper"
           breakpoints={{
             340: {
               slidesPerView: 1,
@@ -148,16 +148,19 @@ export default function Destination() {
             },
 
             768: {
-              slidesPerView: 4,
-              spaceBetween: 15,
+              slidesPerView: 2,
+              spaceBetween: 5,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: 1,
               spaceBetween: 15,
             },
           }}
           loop={true}
-          modules={[Navigation, Pagination, Scrollbar]}
+          autoplay={{
+            delay: 3000, // 3000ms = 3 seconds
+            disableOnInteraction: false, // Swiper will not stop autoplay after interactions
+          }}
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>
@@ -166,15 +169,16 @@ export default function Destination() {
                   sizes="full"
                   src={image.src}
                   alt={`Slide ${index}`}
-                  className="rounded-lg shadow-lg object-cover w-full h-[500px]"
+                  loading="lazy"
+                  className="rounded-lg shadow-lg object-contain w-full h-[500px]"
                 />
-                <div className="p-20 absolute inset-0 bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out px-4">
+                <div className="p-30 absolute inset-0 bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out px-4">
                   <div className="text-black text-left">
                     <h3 className="text-lg font-bold mb-1">{image.title}</h3>
                     <p className="text-sm font-semibold mb-4">
                       {image.subtitle}
                     </p>
-                    <ul className="list-disc list-inside space-y-1 text-base">
+                    <ul className="list-disc list-inside space-y-1 text-sm">
                       <li>4 Nights Stay in Premium Hotels in Krabi & Phuket</li>
                       <li>
                         Return Private Pickup & Drop from Phuket Intl. Airport
