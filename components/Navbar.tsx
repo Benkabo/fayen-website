@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import FayenWhiteLogo from "@/public/images/logo-white.png";
+import FayenWhiteLogo from "@/public/images/FAYEN.png";
 import FayenBlueLogo from "@/public/images/FAYEN.png";
 
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";

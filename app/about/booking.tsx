@@ -1,10 +1,37 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
-export default function booking() {
+export default function Booking() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  // const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleFormSubmit = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const formData = {
+      firstName,
+      lastName,
+      email,
+      phoneNumber,
+      message,
+    };
+
+    await fetch("/api/email", {
+      method: "POST",
+      body: JSON.stringify(formData),
+    }).then((response) => {
+      console.log(response);
+    });
+  };
   return (
-    <div className="max-w-screen-lg m-auto ">
+    <div className="max-w-screen-lg m-auto">
       <div className="text-center mt-10">
         <p className="text-3xl font-bold text-[#01306A]">
           For bookings and Inquiries
@@ -13,8 +40,8 @@ export default function booking() {
           Contact Us
         </p>
       </div>
-      <div className="md:grid md:grid-cols-3 gap-4 mb-10">
-        <div className="bg-gray-100/50 px-10 py-5 ">
+      <div className="lg:grid lg:grid-cols-3 sm:mx-5 gap-4 mb-10">
+        <div className="hidden lg:block bg-gray-100/50 px-10 py-5 ">
           <p className="text-center text-2xl font-semibold mb-5">
             How can we help you?
           </p>
@@ -42,13 +69,15 @@ export default function booking() {
           </div>
         </div>
         <div className="col-span-2 px-5 py-5 bg-[#f5f5f5]">
-          <form>
+          <form onSubmit={handleFormSubmit}>
             <div className="grid grid-cols-2 gap-2 mb-10">
               <div className="flex flex-col">
                 <label className="mb-1">FirstName</label>
                 <input
                   type="text"
                   className="py-2 px-2 rounded-sm border-[1px]"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
               </div>
               <div className="flex flex-col">
@@ -56,6 +85,8 @@ export default function booking() {
                 <input
                   type="text"
                   className="py-2 px-2 rounded-sm border-[1px]"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
               </div>
             </div>
@@ -65,11 +96,17 @@ export default function booking() {
                 <input
                   type="email"
                   className="py-2 px-2 rounded-sm border-[1px]"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="flex flex-col">
                 <label className="mb-1">Phone Number</label>
-                <input className="py-2 px-2 rounded-sm border-[1px]" />
+                <input
+                  className="py-2 px-2 rounded-sm border-[1px]"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                />
               </div>
             </div>
             <div className="grid mb-10">
@@ -92,10 +129,15 @@ export default function booking() {
               <textarea
                 rows={5}
                 className="py-2 px-2 rounded-sm border-[1px]"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
             </div>
             <div className="text-white">
-              <button className="px-5 py-3 rounded-md bg-[#01306A]">
+              <button
+                type="submit"
+                className="px-5 py-3 rounded-md bg-[#01306A]"
+              >
                 Send Inqury
               </button>
             </div>

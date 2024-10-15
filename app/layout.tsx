@@ -4,6 +4,8 @@ import "./globals.css";
 import { Enriqueta } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const enriqueta = Enriqueta({
   variable: "--font-enriqueta",
@@ -26,13 +28,19 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${enriqueta.variable} antialiased`}>
         <div className="enriqueta">
-          <Navbar />
+          <Suspense fallback={<Loading />}>
+            <Navbar />
+          </Suspense>
         </div>
 
-        <main className="enriqueta">{children}</main>
+        <Suspense fallback={<Loading />}>
+          <main className="enriqueta">{children}</main>
+        </Suspense>
 
         <div className="enriqueta">
-          <Footer />
+          <Suspense fallback={<Loading />}>
+            <Footer />
+          </Suspense>
         </div>
       </body>
     </html>
