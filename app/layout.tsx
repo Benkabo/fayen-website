@@ -15,7 +15,7 @@ const enriqueta = Enriqueta({
 });
 
 export const metadata: Metadata = {
-  title: "Fayen",
+  title: "Fayen Travel Agency",
   description: "Your travel business partner.",
 };
 
