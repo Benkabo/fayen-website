@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import treeImage from "@/public/images/tree-1.png";
+import treeImage from "@/public/images/simba.jpg";
 
 export default function About() {
   return (
