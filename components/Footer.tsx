@@ -36,7 +36,7 @@ export default function Footer() {
                     width={175}
                   />
                 </div>
-                <div className="mb-5">
+                <div className="mb-5 lg:w-[70%]">
                   Fayen on a journey of unparalleled adventure with our travel
                   agency, where every detail is curated to perfection, ensuring
                   you not only explore the world.
