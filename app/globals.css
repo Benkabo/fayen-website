@@ -163,6 +163,14 @@ body {
 
 .custom-img {
   background-image: url("../public/images/main.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+  background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
 }
 
 .service-img {
@@ -171,6 +179,14 @@ body {
 
 .custom-img-atcl {
   background-image: url("../public/images/ballons.JPG");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+  background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
 }
 
 /* .swiper-button-next,
