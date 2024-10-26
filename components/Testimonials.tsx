@@ -10,12 +10,12 @@ export default function Testimonials() {
     {
       id: 2,
       text: "I rented a car through Fayen Travel Agency for a family road trip, and I couldn’t be happier with the service. The car was in great condition, and they provided plenty of options to suit our needs. The booking process was simple, and their customer support was top-notch. We had a hassle-free experience from start to finish!",
-      author: "Khalid Aucho",
+      author: "Nasoor",
     },
     {
       id: 3,
       text: "I was nervous about the visa process for my upcoming trip, but Fayen Travel Agency took care of everything. They guided me through each step, ensuring all my paperwork was in order. Thanks to their expertise, I received my visa on time without any issues. I highly recommend their visa registration service!",
-      author: "Declan Rice",
+      author: "Rebecca",
     },
   ];
   return (

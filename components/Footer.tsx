@@ -105,7 +105,7 @@ export default function Footer() {
                   <div>
                     <p className="text-slate-500">For more info:</p>
                     <a href="mailto:Info@fayentravel.co.tz">
-                      <p>Info@fayentravel.co.tz</p>
+                      <p>booking@fayen.co.tz</p>
                     </a>
                   </div>
                   <div>
