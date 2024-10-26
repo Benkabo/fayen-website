@@ -43,7 +43,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-6 mb-5">
                   <Link
-                    href="https://www.google.com/"
+                    href="https://www.facebook.com/people/fayengrouplimited/61565824135538/?mibextid=ZbWKwL"
                     passHref={true}
                     target="_blank"
                   >
@@ -52,19 +52,33 @@ export default function Footer() {
                       className="hover:scale-125 duration-300 ease-in-out"
                     />
                   </Link>
-                  <Link href={"#"} passHref={true} target="_blank">
+                  <Link
+                    href={"https://www.instagram.com/fayengrouplimited/"}
+                    passHref={true}
+                    target="_blank"
+                  >
                     <RiInstagramFill
                       size={30}
                       className="hover:scale-125 duration-300 ease-in-out"
                     />
                   </Link>
-                  <Link href={"#"} passHref={true} target="_blank">
+                  <Link
+                    href={
+                      "https://x.com/fayengrouptz?t=oGlJttEVa9BYxAjiMl2MVw&s=09"
+                    }
+                    passHref={true}
+                    target="_blank"
+                  >
                     <BsTwitterX
                       size={30}
                       className="hover:scale-125 duration-300 ease-in-out"
                     />
                   </Link>
-                  <Link href={"#"} passHref={true} target="_blank">
+                  <Link
+                    href={"https://wa.me/255779528442"}
+                    passHref={true}
+                    target="_blank"
+                  >
                     <FaWhatsapp
                       size={30}
                       className="hover:scale-125 duration-300 ease-in-out"
