@@ -18,6 +18,7 @@ interface ContactEmailProps {
   email?: string;
   phoneNumber?: string;
   message?: string;
+  subject?: string;
 }
 
 export const ContactEmail = ({
@@ -26,6 +27,7 @@ export const ContactEmail = ({
   email,
   phoneNumber,
   message,
+  subject,
 }: ContactEmailProps) => {
   return (
     <Html>
@@ -51,9 +53,10 @@ export const ContactEmail = ({
                     fontSize: 26,
                     fontWeight: "bold",
                     textAlign: "center",
+                    textTransform: "uppercase",
                   }}
                 >
-                  Subject
+                  {subject}
                 </Heading>
 
                 <Text style={paragraph}>

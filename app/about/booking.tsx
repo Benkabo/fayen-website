@@ -1,35 +1,49 @@
 "use client";
 
+import { useFormik } from "formik";
 import Link from "next/link";
-import { useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import * as yup from "yup";
+
+const ValidationSchema = yup.object().shape({
+  firstName: yup.string().required("Firstname is required.."),
+  email: yup.string().email("Invalid email").required("Email is required"),
+  phoneNumber: yup
+    .string()
+    .max(13, "Enter valid phone number")
+    .min(10, "Enter valid phonenumber"),
+  message: yup.string().required("Message is required"),
+});
 
 export default function Booking() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   // const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
 
-  const handleFormSubmit = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    const formData = {
-      firstName,
-      lastName,
-      email,
-      phoneNumber,
-      message,
-    };
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      message: "",
+      subject: "",
+    },
+    validationSchema: ValidationSchema,
+    onSubmit: async (values, { resetForm }) => {
+      await fetch("/api/email", {
+        method: "POST",
+        body: JSON.stringify(values),
+      })
+        .then((response) => {
+          console.log(response);
+          resetForm();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  });
 
-    await fetch("/api/email", {
-      method: "POST",
-      body: JSON.stringify(formData),
-    }).then((response) => {
-      console.log(response);
-    });
-  };
   return (
     <div className="max-w-screen-lg m-auto">
       <div className="text-center mt-10">
@@ -69,24 +83,31 @@ export default function Booking() {
           </div>
         </div>
         <div className="col-span-2 px-5 py-5 bg-[#f5f5f5]">
-          <form onSubmit={handleFormSubmit}>
+          <form onSubmit={formik.handleSubmit}>
             <div className="grid grid-cols-2 gap-2 mb-10">
               <div className="flex flex-col">
                 <label className="mb-1">FirstName</label>
                 <input
+                  name="firstName"
                   type="text"
                   className="py-2 px-2 rounded-sm border-[1px]"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
+                  value={formik.values.firstName}
+                  onChange={formik.handleChange}
                 />
+                {formik.touched.firstName && formik.errors.firstName && (
+                  <div className="text-red-600 text-sm italic">
+                    {formik.errors.firstName}
+                  </div>
+                )}
               </div>
               <div className="flex flex-col">
-                <label className="mb-1">FirstName</label>
+                <label className="mb-1">LastName</label>
                 <input
+                  name="lastName"
                   type="text"
                   className="py-2 px-2 rounded-sm border-[1px]"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
+                  value={formik.values.lastName}
+                  onChange={formik.handleChange}
                 />
               </div>
             </div>
@@ -94,19 +115,31 @@ export default function Booking() {
               <div className="flex flex-col">
                 <label className="mb-1">Email</label>
                 <input
+                  name="email"
                   type="email"
                   className="py-2 px-2 rounded-sm border-[1px]"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
                 />
+                {formik.touched.email && formik.errors.email && (
+                  <div className="text-red-600 text-sm italic">
+                    {formik.errors.email}
+                  </div>
+                )}
               </div>
               <div className="flex flex-col">
                 <label className="mb-1">Phone Number</label>
                 <input
+                  name="phoneNumber"
                   className="py-2 px-2 rounded-sm border-[1px]"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  value={formik.values.phoneNumber}
+                  onChange={formik.handleChange}
                 />
+                {formik.touched.phoneNumber && formik.errors.phoneNumber && (
+                  <div className="text-red-600 text-sm italic">
+                    {formik.errors.phoneNumber}
+                  </div>
+                )}
               </div>
             </div>
             <div className="grid mb-10">
@@ -115,23 +148,34 @@ export default function Booking() {
                 name="subject"
                 id="subjects"
                 className="py-2 px-2 rounded-sm border-[1px] bg-white"
+                value={formik.values.subject}
+                onChange={formik.handleChange}
               >
-                <option value="flight_booking">Flight Booking</option>
-                <option value="hotel_reservation">Hotel Reservation</option>
-                <option value="visa_assistance">VISA Assistance</option>
-                <option value="car_rental">Car Rental</option>
-                <option value="guided_tour">Guided Tour</option>
-                <option value="tour_package">Tour Package</option>
+                <option value="" className="text-sm">
+                  ---please select a subject---
+                </option>
+                <option value="Flight Booking">Flight Booking</option>
+                <option value="Hotel Reservation">Hotel Reservation</option>
+                <option value="VISA Assistance">VISA Assistance</option>
+                <option value="Car Rental">Car Rental</option>
+                <option value="Guided Tour">Guided Tour</option>
+                <option value="Tour Package">Tour Package</option>
               </select>
             </div>
             <div className="grid mb-10">
               <label className="mb-1">Message</label>
               <textarea
+                name="message"
                 rows={5}
                 className="py-2 px-2 rounded-sm border-[1px]"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                value={formik.values.message}
+                onChange={formik.handleChange}
               />
+              {formik.touched.message && formik.errors.message && (
+                <div className="text-red-600 text-sm italic">
+                  {formik.errors.message}
+                </div>
+              )}
             </div>
             <div className="text-white">
               <button
