@@ -2,6 +2,7 @@
 
 import { useFormik } from "formik";
 import Link from "next/link";
+import { useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import * as yup from "yup";
@@ -17,7 +18,8 @@ const ValidationSchema = yup.object().shape({
 });
 
 export default function Booking() {
-  // const [subject, setSubject] = useState("");
+  const [responseMessage, setResponseMessage] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const formik = useFormik({
     initialValues: {
@@ -30,15 +32,23 @@ export default function Booking() {
     },
     validationSchema: ValidationSchema,
     onSubmit: async (values, { resetForm }) => {
+      setLoading(true);
       await fetch("/api/email", {
         method: "POST",
         body: JSON.stringify(values),
       })
         .then((response) => {
-          console.log(response);
+          setLoading(false);
+          if (response?.status === 200) {
+            setResponseMessage("Message sent successfully");
+          }
           resetForm();
+          setTimeout(() => {
+            setResponseMessage("");
+          }, 5000);
         })
         .catch((error) => {
+          setLoading(false);
           console.log(error);
         });
     },
@@ -83,6 +93,9 @@ export default function Booking() {
           </div>
         </div>
         <div className="col-span-2 px-5 py-5 bg-[#f5f5f5]">
+          <div className=" mb-2 italic flex items-center justify-center text-green-600">
+            {responseMessage}
+          </div>
           <form onSubmit={formik.handleSubmit}>
             <div className="grid grid-cols-2 gap-2 mb-10">
               <div className="flex flex-col">
@@ -179,6 +192,7 @@ export default function Booking() {
             </div>
             <div className="text-white">
               <button
+                disabled={loading}
                 type="submit"
                 className="px-5 py-3 rounded-md bg-[#01306A]"
               >
