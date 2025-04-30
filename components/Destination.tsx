@@ -11,6 +11,8 @@ import "swiper/css/scrollbar";
 
 import dubaiNewImg from "@/public/images/dubai-new.jpeg";
 import satoguruImg from "@/public/images/sogturu-holiday.jpeg";
+import londonImg from "@/public/images/london.jpeg";
+import thailandImg from "@/public/images/thailand.png";
 import DestinationDetails from "./DestinationDetails";
 
 export default function Destination() {
@@ -49,6 +51,34 @@ export default function Destination() {
         "Stay in 4-star hotels with daily breakfast and dinners",
         "Guided sightseeing with an expert tour manager",
         "Tips for drivers included for a hassle-free experience",
+      ],
+    },
+    {
+      src: londonImg,
+      title: "London",
+      subtitle: "4 Nights",
+      details: [
+        "04 Nights in London + Breakfast",
+        "Private Vehicle Return Transfer in London (Airport-Hotel-Airport )",
+        "24 Hrs. Hop-on Hop-off London Bus Tours with Thames River Cruise 1 Hrs ( Pick up & Drop off from Dept. Point)",
+        "London Eye - Tickets Only",
+        "Day Trip: Bath & Stonehenge Tour from London including entrance to Roman Baths & Stonehenge Small Group ( Pick up and Drop off from Dept. Point)",
+        "Day Trip: Oxford, Stratford-upon-Avon, Cotswolds & Warwick Castle from London including Warwick Castle & Shakespeare's Birthplace Included -Small Group ( Pick up & Drop off from Dept. Point )",
+      ],
+    },
+    {
+      src: thailandImg,
+      title: "Thailand (2N Phuket & 2N Krabi) - 4N/5D",
+      subtitle: "Price Starting at: USD 609 PP (On Double Sharing Basis)",
+      details: [
+        "Nights Stay in Premium Hotels in Krabi & Phuket",
+        "Return Private Pickup & Drop from Phuket Intl. Airport",
+        "Daily Buffet Breakfast at the Hotel",
+        "Krabi 7 Islands Sunset Tour by Long Tail Boat with Dinner",
+        "Return Transfers from Phuket to Krabi on Pvt. Basis",
+        "Phuket Fantasea Show with Dinner",
+        "Visit James Bond Island by Speedboat with Lunch",
+        "All Applicable Taxes",
       ],
     },
   ];

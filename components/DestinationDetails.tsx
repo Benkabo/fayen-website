@@ -16,7 +16,9 @@ export default function DestinationDetails({
         <p className="text-sm font-semibold mb-4">{subtitle}</p>
         <ul className="list-disc list-inside space-y-1 text-sm">
           {details.map((detail, index) => (
-            <li key={index}>{detail}</li>
+            <li key={index} style={{ maxWidth: "600px" }}>
+              {detail}
+            </li>
           ))}
         </ul>
       </div>
