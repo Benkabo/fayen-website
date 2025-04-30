@@ -2,60 +2,54 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules";
+import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import dubaiImg from "@/public/images/dubai.jpg";
-import capetownImg from "@/public/images/cape-town.jpg";
-import thailandImg from "@/public/images/thailand.png";
-import holidayImg from "@/public/images/holiday.jpg";
-import Image from "next/image";
+import dubaiNewImg from "@/public/images/dubai-new.jpeg";
+import satoguruImg from "@/public/images/sogturu-holiday.jpeg";
+import DestinationDetails from "./DestinationDetails";
 
 export default function Destination() {
   const images = [
     {
-      src: thailandImg,
-      title: "Thailand (2N Phuket & 2N Krabi) - 4N/5D",
-      subtitle: "Price Starting at: USD 609 PP (On Double Sharing Basis)",
-      description: `
-         
-      Inclusions:
-      • 4 Nights Stay in Premium Hotels in Krabi & Phuket
-      • Return Private Pickup & Drop from Phuket Intl. Airport
-      • Daily Buffet Breakfast at the Hotel
-      • Krabi 7 Islands Sunset Tour by Long Tail Boat with Dinner
-      • Return Transfers from Phuket to Krabi on Pvt. Basis
-      • Phuket Fantasea Show with Dinner
-      • Visit James Bond Island by Speedboat with Lunch
-      • All Applicable Taxes
-    `,
+      src: dubaiNewImg,
+      title: "Dubai",
+      subtitle: "6 Nights / 7 Days",
+      details: [
+        "Premium Accommodation in Dubai and Abu Dhabi",
+        "Daily Complimentary Breakfast",
+        "Half-day Dubai city tour & Dhow cruise with Dinner (SIC basis)",
+        "Desert Safari with BBQ dinner & Cultural Entertainment (SIC basis)",
+        "Private Transfers to Dubai Frame",
+        "Buri Khalifa 124th floor & Dubai Aquarium Tour",
+        "Combo Ticket (SIC basis)",
+        "Full-day tour of Abu Dhabi city & Yas",
+        "Island theme park (SIC basis)",
+        "Private Airport Transfers",
+      ],
     },
     {
-      src: capetownImg,
-      title: `4N/5D Price Starting at: USD 495 PP (Per Person on Twin Sharing Basis)`,
-      subtitle: "Luxury Package: USD 835 PP (Per Person on Twin Sharing Basis)",
-      description: "This is the description for Image 2",
-    },
-    {
-      src: dubaiImg,
-      title: `4N/5D `,
-      subtitle: "Prices Starting from (Per Person on Double Sharing Basis)",
-      description: "This is the description for Image 3",
-    },
-    {
-      src: holidayImg,
-      title: "",
-      subtitle: "",
-      description: "This is the description for Image 3",
-    },
-    {
-      src: capetownImg,
-      title: "",
-      subtitle: "",
-      description: "This is the description for Image 2",
+      src: satoguruImg,
+      title: "Grand European Tour",
+      subtitle: "13 Days / 8 Countries / 4-Stars Hotels",
+      details: [
+        " Flight, Visa Assistance and Travel Insurance",
+        "Explore Paris with a city tour and a relaxing Seine River Cruise",
+        "Visit the stunning Versailles Palace and ascend the Eiffel Tower",
+        "Discover Mini Europe and enjoy free time at Grand Place, Brussels",
+        "Experience the scenic Amsterdam Canal Cruise",
+        "Witness the beauty of Rhine Falls and a Cuckoo Clock Demonstration in Titisee",
+        "Take in the breathtaking views from Jungfraujoch & Mt. Titlis",
+        "Enjoy a Gondola Ride in Venice and a guided tour of Florence",
+        "Capture memories at the Leaning Tower of Pisa and Vatican City",
+        "Stay in 4-star hotels with daily breakfast and dinners",
+        "Guided sightseeing with an expert tour manager",
+        "Tips for drivers included for a hassle-free experience",
+      ],
     },
   ];
   return (
@@ -70,70 +64,6 @@ export default function Destination() {
             Explore Beautiful Places
           </p>
         </div>
-        {/* 
-        <Swiper
-          breakpoints={{
-            340: {
-              slidesPerView: 2,
-              spaceBetween: 15,
-            },
-
-            768: {
-              slidesPerView: 4,
-              spaceBetween: 15,
-            },
-            1024: {
-              slidesPerView: 4,
-              spaceBetween: 15,
-            },
-          }}
-          navigation={true}
-          pagination={{ clickable: true }}
-          loop={true}
-          modules={[Navigation, Pagination, Scrollbar]}
-          className="max-w-[90%] lg:max-w-full"
-        >
-          <SwiperSlide>
-            <DestinationCard
-              src={dubaiImg}
-              alt="France image"
-              location="France"
-              price={100}
-              days={2}
-              description="Paris, Frances"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <DestinationCard
-              src={thailandImg}
-              alt="France image"
-              location="France"
-              price={100}
-              days={2}
-              description="Paris, France"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <DestinationCard
-              src={capetownImg}
-              alt="France image"
-              location="France"
-              price={100}
-              days={2}
-              description="Paris, France"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <DestinationCard
-              src={holidayImg}
-              alt="France image"
-              location="France"
-              price={100}
-              days={2}
-              description="Paris, France"
-            />
-          </SwiperSlide>
-        </Swiper> */}
 
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, Autoplay]}
@@ -156,11 +86,12 @@ export default function Destination() {
               spaceBetween: 15,
             },
           }}
-          loop={true}
-          autoplay={{
-            delay: 3000, // 3000ms = 3 seconds
-            disableOnInteraction: false, // Swiper will not stop autoplay after interactions
-          }}
+          // TODO: Commented autoplay
+          // loop={true}
+          // autoplay={{
+          //   delay: 3000, // 3000ms = 3 seconds
+          //   disableOnInteraction: false, // Swiper will not stop autoplay after interactions
+          // }}
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>
@@ -172,31 +103,11 @@ export default function Destination() {
                   loading="lazy"
                   className="rounded-lg shadow-lg object-contain w-full h-[500px]"
                 />
-                <div className="p-30 absolute inset-0 bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out px-4">
-                  <div className="text-black text-left">
-                    <h3 className="text-lg font-bold mb-1">{image.title}</h3>
-                    <p className="text-sm font-semibold mb-4">
-                      {image.subtitle}
-                    </p>
-                    <ul className="list-disc list-inside space-y-1 text-sm">
-                      <li>4 Nights Stay in Premium Hotels in Krabi & Phuket</li>
-                      <li>
-                        Return Private Pickup & Drop from Phuket Intl. Airport
-                      </li>
-                      <li>Daily Buffet Breakfast at the Hotel</li>
-                      <li>
-                        Krabi 7 Islands Sunset Tour by Long Tail Boat with
-                        Dinner
-                      </li>
-                      <li>
-                        Return Transfers from Phuket to Krabi on Pvt. Basis
-                      </li>
-                      <li>Phuket Fantasea Show with Dinner</li>
-                      <li>Visit James Bond Island by Speedboat with Lunch</li>
-                      <li>All Applicable Taxes</li>
-                    </ul>
-                  </div>
-                </div>
+                <DestinationDetails
+                  title={image.title}
+                  subtitle={image.subtitle}
+                  details={image.details}
+                />
               </div>
             </SwiperSlide>
           ))}
