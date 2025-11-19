@@ -31,6 +31,8 @@ export const metadata: Metadata = {
     "travel services",
     "car rental",
     "visa application",
+    "vacation",
+    "Zanzibar",
   ],
   authors: [{ name: "FAYEN TRAVEL AGENCY" }],
   openGraph: {

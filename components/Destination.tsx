@@ -1,148 +1,234 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules";
+import { useState } from "react";
 import Image from "next/image";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { CiMaximize2 } from "react-icons/ci";
+import { IoMdClose } from "react-icons/io";
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-
-import dubaiNewImg from "@/public/images/dubai-new.jpeg";
-import satoguruImg from "@/public/images/sogturu-holiday.jpeg";
-import londonImg from "@/public/images/london.jpeg";
-import thailandImg from "@/public/images/thailand.png";
-import DestinationDetails from "./DestinationDetails";
+import dubaiNewImg from "@/public/images/dubai.jpeg";
+import cruiseImg from "@/public/images/cruise.jpeg";
+import afconImg from "@/public/images/afcon.jpeg";
+import thailandImg from "@/public/images/thailand.jpeg";
 
 export default function Destination() {
-  const images = [
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const destinations = [
     {
       src: dubaiNewImg,
       title: "Dubai",
-      subtitle: "6 Nights / 7 Days",
+      subtitle: "6 Nights / 5 Days (USD 688* pp)",
       details: [
-        "Premium Accommodation in Dubai and Abu Dhabi",
-        "Daily Complimentary Breakfast",
-        "Half-day Dubai city tour & Dhow cruise with Dinner (SIC basis)",
-        "Desert Safari with BBQ dinner & Cultural Entertainment (SIC basis)",
-        "Private Transfers to Dubai Frame",
-        "Buri Khalifa 124th floor & Dubai Aquarium Tour",
-        "Combo Ticket (SIC basis)",
-        "Full-day tour of Abu Dhabi city & Yas",
-        "Island theme park (SIC basis)",
-        "Private Airport Transfers",
+        "Starting from USD 688 per person on a Twin/Double Basis",
+        "Accommodation in Ramada Plaza By Wyndham Dubai Deira or similar (BB Basis)",
+        "Dhow cruise Marina with Dinner on SIC Basis",
+        "Miracle garden on SIC Basis",
+        "Burj Khalifa 124th floor non-peak hours and DAUZ on SIC Basis",
+        "Desert safari with BBQ Dinner on SIC Basis",
+        "Private Airport Return Transef",
       ],
     },
     {
-      src: satoguruImg,
-      title: "Grand European Tour",
-      subtitle: "13 Days / 8 Countries / 4-Stars Hotels",
+      src: cruiseImg,
+      title: "MSC CRUISE FANTASTICA",
+      subtitle: "DURBAN - POMENE - DURBAN (USD 555 pp {04 Nights})",
       details: [
-        " Flight, Visa Assistance and Travel Insurance",
-        "Explore Paris with a city tour and a relaxing Seine River Cruise",
-        "Visit the stunning Versailles Palace and ascend the Eiffel Tower",
-        "Discover Mini Europe and enjoy free time at Grand Place, Brussels",
-        "Experience the scenic Amsterdam Canal Cruise",
-        "Witness the beauty of Rhine Falls and a Cuckoo Clock Demonstration in Titisee",
-        "Take in the breathtaking views from Jungfraujoch & Mt. Titlis",
-        "Enjoy a Gondola Ride in Venice and a guided tour of Florence",
-        "Capture memories at the Leaning Tower of Pisa and Vatican City",
-        "Stay in 4-star hotels with daily breakfast and dinners",
-        "Guided sightseeing with an expert tour manager",
-        "Tips for drivers included for a hassle-free experience",
+        "Accomodation in balcony cabin",
+        "Unique dining experiences with international flavors available",
+        "Entertainment: Broadway/Las Vegas shows, music, activities, sports & kids clubs",
+        "Port charges, taxes, and gratuity",
       ],
     },
     {
-      src: londonImg,
-      title: "London",
-      subtitle: "4 Nights",
-      details: [
-        "04 Nights in London + Breakfast",
-        "Private Vehicle Return Transfer in London (Airport-Hotel-Airport )",
-        "24 Hrs. Hop-on Hop-off London Bus Tours with Thames River Cruise 1 Hrs ( Pick up & Drop off from Dept. Point)",
-        "London Eye - Tickets Only",
-        "Day Trip: Bath & Stonehenge Tour from London including entrance to Roman Baths & Stonehenge Small Group ( Pick up and Drop off from Dept. Point)",
-        "Day Trip: Oxford, Stratford-upon-Avon, Cotswolds & Warwick Castle from London including Warwick Castle & Shakespeare's Birthplace Included -Small Group ( Pick up & Drop off from Dept. Point )",
-      ],
+      src: afconImg,
+      title: "AFCON 2025",
+      subtitle: "Travel & Stay Deals (21st Dec 2025 - 18th Jan 2026)",
+      details: ["Casablanca", "Rabat", "Tangier", "Marrakech", "FES", "Agadir"],
     },
     {
       src: thailandImg,
-      title: "Thailand (2N Phuket & 2N Krabi) - 4N/5D",
-      subtitle: "Price Starting at: USD 609 PP (On Double Sharing Basis)",
+      title: "Thailand",
+      subtitle: "05 NIGHTS / 06 DAYS | Starting at USD 502 PP",
       details: [
-        "Nights Stay in Premium Hotels in Krabi & Phuket",
-        "Return Private Pickup & Drop from Phuket Intl. Airport",
-        "Daily Buffet Breakfast at the Hotel",
-        "Krabi 7 Islands Sunset Tour by Long Tail Boat with Dinner",
-        "Return Transfers from Phuket to Krabi on Pvt. Basis",
-        "Phuket Fantasea Show with Dinner",
-        "Visit James Bond Island by Speedboat with Lunch",
-        "All Applicable Taxes",
+        "3N Bangkok and 2N Pattaya Accomodation at 3-star/4-star Hotels or similar (BB Basis)",
+        "English-speaking guide",
+        "Hotel pick-up & drop-off (Bangkok)",
+        "All activity & Entry fees",
+        "Lunch on Day 2, Day 3 and Day 5",
+        "Breakfast at Hotel",
       ],
     },
   ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % destinations.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(
+      (prev) => (prev - 1 + destinations.length) % destinations.length
+    );
+  };
+
+  const goToSlide = (index: number): void => {
+    setCurrentSlide(index);
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div id="destination" className="min-h-fit py-20 lg:flex">
-      <div className="max-w-screen-lg mx-auto md:max-w-screen-xl md:m-auto">
-        <div className="text-center">
+    <div id="destination" className="min-h-fit py-20">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+        {/* Header */}
+        <div className="text-center mb-12">
           <p className="text-3xl md:text-5xl font-bold text-[#01306A]">
             Destinations
           </p>
-
           <p className="mb-5 mt-8 tracking-wide font-extrabold text-[#01306A] text-4xl md:text-6xl">
             Explore Beautiful Places
           </p>
         </div>
 
-        <Swiper
-          modules={[Navigation, Pagination, Scrollbar, Autoplay]}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          breakpoints={{
-            340: {
-              slidesPerView: 1,
-              spaceBetween: 15,
-            },
+        {/* Carousel Container */}
+        <div className="relative">
+          {/* Main Content */}
+          <div className="bg-white rounded-xl shadow-[0_-8px_16px_-4px_rgba(1,48,106,0.8)] overflow-hidden border-[6px] border-[#01306A] p-2">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              {/* Image Section - Left */}
 
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 5,
-            },
-            1024: {
-              slidesPerView: 1,
-              spaceBetween: 15,
-            },
-          }}
-          // TODO: Commented autoplay
-          // loop={true}
-          // autoplay={{
-          //   delay: 3000, // 3000ms = 3 seconds
-          //   disableOnInteraction: false, // Swiper will not stop autoplay after interactions
-          // }}
-        >
-          {images.map((image, index) => (
-            <SwiperSlide key={index}>
-              <div className="relative group transform transition duration-300 ease-in-out hover:scale-105">
+              <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg bg-gray-100">
                 <Image
-                  sizes="full"
-                  src={image.src}
-                  alt={`Slide ${index}`}
-                  loading="lazy"
-                  className="rounded-lg shadow-lg object-contain w-full h-[500px]"
+                  src={destinations[currentSlide].src}
+                  alt={destinations[currentSlide].title}
+                  fill
+                  className="object-cover"
+                  priority
                 />
-                <DestinationDetails
-                  title={image.title}
-                  subtitle={image.subtitle}
-                  details={image.details}
-                />
+
+                {/* Expand Button */}
+                <button
+                  onClick={openModal}
+                  className="absolute top-4 right-4 bg-[#01306A] text-white p-2 rounded-full shadow-lg hover:bg-[#024b9c] transition-all duration-300 hover:scale-110 z-10 animate-bounce"
+                  aria-label="View full image"
+                >
+                  <CiMaximize2 size={20} />
+                </button>
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+
+              {/* Details Section - Right */}
+              <div className="flex flex-col justify-center h-full">
+                <h2 className="text-4xl md:text-5xl font-bold text-[#01306A] mb-2">
+                  {destinations[currentSlide].title}
+                </h2>
+                <p className="text-lg md:text-xl text-gray-600 mb-6 font-medium">
+                  {destinations[currentSlide].subtitle}
+                </p>
+
+                {/* Scrollable Details */}
+                <div className="max-h-[320px] overflow-y-auto pr-4 space-y-3 custom-scrollbar">
+                  {destinations[currentSlide].details.map((detail, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <div className="min-w-[8px] h-[8px] rounded-full bg-[#01306A] mt-2"></div>
+                      <p className="text-gray-700 leading-relaxed">{detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 bg-[#01306A] text-white p-3 rounded-full shadow-lg hover:bg-[#024b9c] transition-all duration-300 hover:scale-110 z-10"
+            aria-label="Previous slide"
+          >
+            <FaChevronLeft size={28} />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 bg-[#01306A] text-white p-3 rounded-full shadow-lg hover:bg-[#024b9c] transition-all duration-300 hover:scale-110 z-10"
+            aria-label="Next slide"
+          >
+            <FaChevronRight size={28} />
+          </button>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-3 mt-8">
+            {destinations.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`transition-all duration-300 rounded-full ${
+                  currentSlide === index
+                    ? "w-12 h-3 bg-[#01306A]"
+                    : "w-3 h-3 bg-gray-300 hover:bg-gray-400"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+        {isModalOpen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-90 z-[9999] flex items-center justify-center p-4"
+            onClick={closeModal}
+          >
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 bg-white text-[#01306A] p-3 rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300 hover:scale-110 z-10"
+              aria-label="Close modal"
+            >
+              <IoMdClose size={28} />
+            </button>
+
+            <div
+              className="relative w-full h-full max-w-7xl max-h-[90vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={destinations[currentSlide].src}
+                alt={destinations[currentSlide].title}
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-white px-6 py-3 rounded-full shadow-lg">
+              <p className="text-[#01306A] font-bold text-lg">
+                {destinations[currentSlide].title}
+              </p>
+            </div>
+          </div>
+        )}
       </div>
+
+      {/* Custom Scrollbar Styles */}
+      <style jsx>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #01306a;
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #024b9c;
+        }
+      `}</style>
     </div>
   );
 }
