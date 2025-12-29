@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { Suspense } from "react";
 import Loading from "./loading";
 import SchemaMarkup from "@/components/SchemaMarkup";
+import { Analytics } from "@vercel/analytics/next";
 
 const enriqueta = Enriqueta({
   variable: "--font-enriqueta",
@@ -84,6 +85,8 @@ export default function RootLayout({
 
         <Suspense fallback={<Loading />}>
           <main className="enriqueta">{children}</main>
+
+          <Analytics />
         </Suspense>
 
         <div className="enriqueta">
