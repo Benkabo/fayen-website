@@ -56,7 +56,7 @@ export default function Booking() {
   });
 
   return (
-    <div className="max-w-screen-lg m-auto">
+    <div className="max-w-(--breakpoint-lg) m-auto">
       <div className="text-center mt-10">
         <p className="text-3xl font-bold text-[#01306A]">
           For bookings and Inquiries
@@ -104,7 +104,7 @@ export default function Booking() {
                 <input
                   name="firstName"
                   type="text"
-                  className="py-2 px-2 rounded-sm border-[1px]"
+                  className="py-2 px-2 rounded-xs border"
                   value={formik.values.firstName}
                   onChange={formik.handleChange}
                 />
@@ -119,7 +119,7 @@ export default function Booking() {
                 <input
                   name="lastName"
                   type="text"
-                  className="py-2 px-2 rounded-sm border-[1px]"
+                  className="py-2 px-2 rounded-xs border"
                   value={formik.values.lastName}
                   onChange={formik.handleChange}
                 />
@@ -131,7 +131,7 @@ export default function Booking() {
                 <input
                   name="email"
                   type="email"
-                  className="py-2 px-2 rounded-sm border-[1px]"
+                  className="py-2 px-2 rounded-xs border"
                   value={formik.values.email}
                   onChange={formik.handleChange}
                 />
@@ -145,7 +145,7 @@ export default function Booking() {
                 <label className="mb-1">Phone Number</label>
                 <input
                   name="phoneNumber"
-                  className="py-2 px-2 rounded-sm border-[1px]"
+                  className="py-2 px-2 rounded-xs border"
                   value={formik.values.phoneNumber}
                   onChange={formik.handleChange}
                 />
@@ -161,7 +161,7 @@ export default function Booking() {
               <select
                 name="subject"
                 id="subjects"
-                className="py-2 px-2 rounded-sm border-[1px] bg-white"
+                className="py-2 px-2 rounded-xs border bg-white"
                 value={formik.values.subject}
                 onChange={formik.handleChange}
               >
@@ -181,7 +181,7 @@ export default function Booking() {
               <textarea
                 name="message"
                 rows={5}
-                className="py-2 px-2 rounded-sm border-[1px]"
+                className="py-2 px-2 rounded-xs border"
                 value={formik.values.message}
                 onChange={formik.handleChange}
               />
