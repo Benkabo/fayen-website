@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function Services() {
   return (
     <div id="service" className="flex bg-center bg-cover service-img">
-      <div className="max-w-screen-lg mb-5 mx-auto">
+      <div className="max-w-(--breakpoint-lg) mb-5 mx-auto">
         <p className="text-white text-center text-4xl font-bold mt-28 mb-10">
           Our Services
         </p>

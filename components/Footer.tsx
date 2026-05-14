@@ -141,7 +141,7 @@ export default function Footer() {
         </div>
       </div>
       {isOpen && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed inset-0 z-1000 flex items-center justify-center bg-black bg-opacity-50">
           {/* Modal box */}
           <div className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-lg shadow-lg overflow-hidden">
             {/* Modal header */}

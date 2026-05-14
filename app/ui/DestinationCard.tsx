@@ -48,7 +48,7 @@ export default function DestinationCard({
             <article className="mb-2">
               <h3 className="font-semibold text-wrap ">{description}</h3>
             </article>
-            <hr className="border-1" />
+            <hr className="border" />
             <div className="mt-2">
               <p>
                 {days} <span>days</span>

@@ -4,7 +4,7 @@ import treeImage from "@/public/images/simba.jpg";
 
 export default function About() {
   return (
-    <div id="about" className="max-w-screen-lg mx-auto">
+    <div id="about" className="max-w-(--breakpoint-lg) mx-auto">
       <div className="flex items-center justify-center min-h-[600px] gap-4">
         <div className="hidden lg:flex gap-2">
           <Image

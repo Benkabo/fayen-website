@@ -42,7 +42,7 @@ export default function DestinationSlider({ destinations }: SanityDocument) {
 
   return (
     <div id="destination" className="min-h-fit py-20">
-      <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+      <div className="max-w-(--breakpoint-xl) mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <p className="text-3xl md:text-5xl font-bold text-[#01306A]">
@@ -141,7 +141,7 @@ export default function DestinationSlider({ destinations }: SanityDocument) {
         </div>
         {isModalOpen && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-90 z-[9999] flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black bg-opacity-90 z-9999 flex items-center justify-center p-4"
             onClick={closeModal}
           >
             <button

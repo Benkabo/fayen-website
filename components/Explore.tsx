@@ -7,7 +7,7 @@ import { CiBookmark } from "react-icons/ci";
 
 export default function Explore() {
   return (
-    <div className=" max-w-screen-md lg:max-w-screen-2xl min-h-[500px] mx-auto  py-10 ">
+    <div className=" max-w-(--breakpoint-md) lg:max-w-(--breakpoint-2xl) min-h-[500px] mx-auto  py-10 ">
       <div className="flex gap-6">
         <div className="hidden lg:flex w-1/2 relative">
           <Image src={shape} alt="shape" />
