@@ -1,59 +1,60 @@
 "use client";
 
-import * as yup from "yup";
+import * as zod from "zod";
 
-import { useFormik } from "formik";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
-const ValidationSchema = yup.object().shape({
-  firstName: yup.string().required("Firstname is required.."),
-  email: yup.string().email("Invalid email").required("Email is required"),
-  phoneNumber: yup
+const schema = zod.object({
+  firstName: zod.string().min(1, "Firstname is required.."),
+  email: zod.string().email("Invalid email").min(1, "Email is required"),
+  lastName: zod.string().min(1, "Lastname is required.."),
+  phoneNumber: zod
     .string()
     .max(13, "Enter valid phone number")
     .min(10, "Enter valid phonenumber"),
-  message: yup.string().required("Message is required"),
+  message: zod.string().min(1, "Message is required"),
+  subject: zod.string().min(1, "Subject is required"),
 });
+
+type FormDataType = zod.infer<typeof schema>;
 
 export default function Booking() {
   const [responseMessage, setResponseMessage] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
-  const formik = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      message: "",
-      subject: "",
-    },
-    validationSchema: ValidationSchema,
-    onSubmit: async (values, { resetForm }) => {
-      setLoading(true);
-      await fetch("/api/email", {
-        method: "POST",
-        body: JSON.stringify(values),
-      })
-        .then((response) => {
-          setLoading(false);
-          if (response?.status === 200) {
-            setResponseMessage("Message sent successfully");
-          }
-          resetForm();
-          setTimeout(() => {
-            setResponseMessage("");
-          }, 5000);
-        })
-        .catch((error) => {
-          setLoading(false);
-          console.log(error);
-        });
-    },
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<FormDataType>({
+    resolver: zodResolver(schema),
   });
+
+  const onSubmit = async (formValue: FormDataType) => {
+    setLoading(true);
+    await fetch("/api/email", {
+      method: "POST",
+      body: JSON.stringify(formValue),
+    })
+      .then((response) => {
+        setLoading(false);
+        if (response?.status === 200) {
+          setResponseMessage("Message sent successfully");
+        }
+        setTimeout(() => {
+          setResponseMessage("");
+        }, 5000);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  };
 
   return (
     <div className="max-w-(--breakpoint-lg) m-auto">
@@ -97,31 +98,27 @@ export default function Booking() {
           <div className=" mb-2 italic flex items-center justify-center text-green-600">
             {responseMessage}
           </div>
-          <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-2 gap-2 mb-10">
               <div className="flex flex-col">
                 <label className="mb-1">FirstName</label>
                 <input
-                  name="firstName"
                   type="text"
                   className="py-2 px-2 rounded-xs border"
-                  value={formik.values.firstName}
-                  onChange={formik.handleChange}
+                  {...register("firstName")}
                 />
-                {formik.touched.firstName && formik.errors.firstName && (
+                {errors.firstName && (
                   <div className="text-red-600 text-sm italic">
-                    {formik.errors.firstName}
+                    {errors.firstName.message}
                   </div>
                 )}
               </div>
               <div className="flex flex-col">
                 <label className="mb-1">LastName</label>
                 <input
-                  name="lastName"
                   type="text"
                   className="py-2 px-2 rounded-xs border"
-                  value={formik.values.lastName}
-                  onChange={formik.handleChange}
+                  {...register("lastName")}
                 />
               </div>
             </div>
@@ -129,29 +126,25 @@ export default function Booking() {
               <div className="flex flex-col">
                 <label className="mb-1">Email</label>
                 <input
-                  name="email"
                   type="email"
                   className="py-2 px-2 rounded-xs border"
-                  value={formik.values.email}
-                  onChange={formik.handleChange}
+                  {...register("email")}
                 />
-                {formik.touched.email && formik.errors.email && (
+                {errors.email && (
                   <div className="text-red-600 text-sm italic">
-                    {formik.errors.email}
+                    {errors.email.message}
                   </div>
                 )}
               </div>
               <div className="flex flex-col">
                 <label className="mb-1">Phone Number</label>
                 <input
-                  name="phoneNumber"
                   className="py-2 px-2 rounded-xs border"
-                  value={formik.values.phoneNumber}
-                  onChange={formik.handleChange}
+                  {...register("phoneNumber")}
                 />
-                {formik.touched.phoneNumber && formik.errors.phoneNumber && (
+                {errors.phoneNumber && (
                   <div className="text-red-600 text-sm italic">
-                    {formik.errors.phoneNumber}
+                    {errors.phoneNumber.message}
                   </div>
                 )}
               </div>
@@ -159,11 +152,9 @@ export default function Booking() {
             <div className="grid mb-10">
               <label className="mb-1">Subject</label>
               <select
-                name="subject"
                 id="subjects"
                 className="py-2 px-2 rounded-xs border bg-white"
-                value={formik.values.subject}
-                onChange={formik.handleChange}
+                {...register("subject")}
               >
                 <option value="" className="text-sm">
                   ---please select a subject---
@@ -179,15 +170,13 @@ export default function Booking() {
             <div className="grid mb-10">
               <label className="mb-1">Message</label>
               <textarea
-                name="message"
                 rows={5}
                 className="py-2 px-2 rounded-xs border"
-                value={formik.values.message}
-                onChange={formik.handleChange}
+                {...register("message")}
               />
-              {formik.touched.message && formik.errors.message && (
+              {errors.message && (
                 <div className="text-red-600 text-sm italic">
-                  {formik.errors.message}
+                  {errors.message.message}
                 </div>
               )}
             </div>
