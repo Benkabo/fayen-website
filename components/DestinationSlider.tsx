@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
 import { type SanityDocument } from "next-sanity";
+import Image from "next/image";
+import { useState } from "react";
 
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { CiMaximize2 } from "react-icons/ci";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 
 import { urlFor } from "@/app/sanity/image";
@@ -24,7 +24,7 @@ export default function DestinationSlider({ destinations }: SanityDocument) {
 
   const prevSlide = () => {
     setCurrentSlide(
-      (prev) => (prev - 1 + destinations.length) % destinations.length
+      (prev) => (prev - 1 + destinations.length) % destinations.length,
     );
   };
 
@@ -100,7 +100,7 @@ export default function DestinationSlider({ destinations }: SanityDocument) {
                           {detail}
                         </p>
                       </div>
-                    )
+                    ),
                   )}
                 </div>
               </div>

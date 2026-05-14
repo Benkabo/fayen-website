@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
 import "./globals.css";
 
-import { Enriqueta } from "next/font/google";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import SchemaMarkup from "@/components/SchemaMarkup";
+import type { Metadata } from "next";
+import { Enriqueta } from "next/font/google";
 import { Suspense } from "react";
 import Loading from "./loading";
-import SchemaMarkup from "@/components/SchemaMarkup";
 
 const enriqueta = Enriqueta({
   variable: "--font-enriqueta",

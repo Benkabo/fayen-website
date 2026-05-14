@@ -1,6 +1,5 @@
-import { Resend } from "resend";
-
 import ContactEmail from "@/emails/Contact";
+import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

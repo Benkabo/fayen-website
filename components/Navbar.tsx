@@ -1,13 +1,14 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+
+import {
+  default as FayenBlueLogo,
+  default as FayenWhiteLogo,
+} from "@/public/images/FAYEN.png";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-import FayenWhiteLogo from "@/public/images/FAYEN.png";
-import FayenBlueLogo from "@/public/images/FAYEN.png";
-
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 export default function Navbar() {
   const [nav, setNav] = useState(false);

@@ -1,10 +1,9 @@
-import Link from "next/link";
-import Image from "next/image";
-import { CiBookmark } from "react-icons/ci";
-
-import shape from "@/public/images/shape-4 1.svg";
 import explore1 from "@/public/images/explore1.png";
 import explore2 from "@/public/images/explore2.png";
+import shape from "@/public/images/shape-4 1.svg";
+import Image from "next/image";
+import Link from "next/link";
+import { CiBookmark } from "react-icons/ci";
 
 export default function Explore() {
   return (

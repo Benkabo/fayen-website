@@ -1,11 +1,12 @@
 "use client";
 
+import * as yup from "yup";
+
 import { useFormik } from "formik";
 import Link from "next/link";
 import { useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-import * as yup from "yup";
 
 const ValidationSchema = yup.object().shape({
   firstName: yup.string().required("Firstname is required.."),

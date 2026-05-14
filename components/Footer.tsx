@@ -1,13 +1,14 @@
 "use client";
 
-import Image from "next/image";
-import fayenWhiteLogo from "@/public/images/Fayen-icon.png";
-import Link from "next/link";
-import { FaArrowCircleUp, FaFacebook, FaWhatsapp } from "react-icons/fa";
-import { RiInstagramFill } from "react-icons/ri";
-import { BsTwitterX } from "react-icons/bs";
 import { useEffect, useState } from "react";
+import { FaArrowCircleUp, FaFacebook, FaWhatsapp } from "react-icons/fa";
+
+import fayenWhiteLogo from "@/public/images/Fayen-icon.png";
+import Image from "next/image";
+import Link from "next/link";
 import { AiOutlineClose } from "react-icons/ai";
+import { BsTwitterX } from "react-icons/bs";
+import { RiInstagramFill } from "react-icons/ri";
 
 export default function Footer() {
   const [isOpen, setIsOpen] = useState<boolean>(false);

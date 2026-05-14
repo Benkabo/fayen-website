@@ -1,5 +1,4 @@
 import ServiceCard from "@/app/ui/ServiceCard";
-
 import service1 from "@/public/images/service1.png";
 import service2 from "@/public/images/service2.jpeg";
 import service3 from "@/public/images/service3.png";
